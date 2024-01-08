@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+$primary: #00FF94;
+$white: #FFFFFF;
+$black: #1E1E1E;
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+}
+
+.app{
+    margin-top: 80px;
+}
+
+/* ================NAVBAR==================== */
+
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: $black;
+    .nav-warp{
+        display: flex;
+        align-items: center;
+        height: 100%;
+        .nav-items{
+            position: relative;
+            width: fit-content;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .nav-item{
+                margin: 0 50px;
+                color: $white;
+                list-style-type: none;
+                font-family: 'Anonymous Pro', monospace;
+                font-weight: 700;
+                font-size: 16px;
+                cursor: pointer;
+                transition: all .3s ease-out;
+                &.active{
+                    color: $primary;
+                    &::selection{
+                        background-color: $white;
+                    }
+                }
+                &:hover{
+                    color: $primary;
+                    transform: scale(1.02);
+                }
+                &::selection{
+                    background-color: $primary;
+                }
+            }
+        }
+    }
+}
+
+/* ================MAINSECTION==================== */
+
+.main-section{
+    width: 100%;
+    height: 944px;
+    display: flex;
+    align-items: center;
+    background-color: $black;
+    justify-content: space-between;
+    .main-warp{
+        width: 672px;
+        margin: 0 222px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        h2{
+            font-size: 24px;
+            color: $primary;
+            font-family: 'Aldrich', sans-serif;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            animation: fadeIn 1s;
+            &::selection{
+                background-color: $white;
+            }
+        }
+        h1{
+            font-family: 'Anonymous Pro', monospace;
+            font-size: 96px;
+            color: $white;
+            margin: 0;
+            padding: 0;
+            animation: fadeIn2 1s;
+            &::selection{
+                background-color: $primary;
+            }
+        }
+        p{
+            margin: 0;
+            padding: 0;
+            color: $white;
+            font-family: 'Anonymous Pro', monospace;
+            font-size: 16px;
+            font-weight: 400;
+            animation: fadeIn2 1s;
+            &::selection{
+                background-color: $primary;
+            }
+        }
+        @keyframes fadeIn {
+            0%{
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeIn2 {
+            0%{
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    }
+    .main-profile{
+        position: relative;
+        background-color: transparent;
+        width: 440px;
+        height: 440px;
+        margin-right: 222px;
+        display: flex;
+        align-items: center;
+        justify-content: center;        
+        animation: scaleIn 2s;
+        .video-holder{
+            width: 340px;
+            height: 340px;
+            border-radius: 25px;            
+            overflow: hidden;
+            z-index: 1;
+            .profile-video{
+                width: 340px;
+                height: 340px;
+            }
+        }
+        .border-profile{
+            position: absolute;
+            border: solid 1px $primary;
+            width: 360px;
+            height: 360px;
+            border-radius: 25px;
+            animation: scaleUpDown 2s infinite alternate;
+        }
+        .gif-holder-1{
+            overflow: hidden;
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background-color: transparent;
+            border-radius: 25px;
+            left: 0px;
+            top: 0;
+            z-index: 2;
+            animation: fadeInOut 10s ease-in-out infinite;
+            ::selection{
+                background-color: $primary;
+            }
+        }
+        .gif-holder-2{
+            overflow: hidden;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 180px;
+            height: 150px;
+            background-color: transparent;
+            border-radius: 25px;
+            left: 300px;
+            top: 300px;
+            z-index: 2;
+            animation: moveLeftInOut 5s ease-in-out infinite;
+            ::selection{
+                background-color: $primary;
+            }
+        }
+        .txt-holder{
+            position: absolute;
+            left: 280px;
+            top: 0px;
+            z-index: 2;
+            color: $primary;
+            letter-spacing: 5px;
+            font-family: 'Aldrich', sans-serif;
+            font-size: 16px;
+            border-right: 5px solid $primary;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: 
+                cursor .4s step-end infinite alternate,
+                type 4s infinite;
+            &::selection{
+                background-color: $white;
+            }
+        }
+        @keyframes scaleUpDown {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+        @keyframes fadeInOut {
+            0%, 25%, 75%, 100% {
+                transform: scale(0);
+            }
+            30%, 70% {
+                transform: scale(1);
+            }
+        }
+        @keyframes moveLeftInOut {
+            0%, 100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            30%, 70% {
+                opacity: 1;
+                transform: translateY(50px);
+
+            }
+        }
+        @keyframes cursor {
+            50%{ border-color: transparent;}            
+        }        
+        @keyframes type {
+            0%{
+                width: 0%;
+            }
+            100%{
+                width: fit-content;
+            }
+        }
+        @keyframes scaleIn {
+            from{
+                transform: scale(0);
+            }
+            to{
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+
+
+/* ================TITLE==================== */
+
+.title{
+    height: 0px;
+    background-color: $white;
+    color: $black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.7s ease-out;
+    overflow: hidden;
+    transition-delay: 0.2s;
+    .title-warp{
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        h2{
+            margin: 0;
+            padding: 0;
+            font-family: 'Aldrich', sans-serif;
+            font-size: 32px;
+        }
+        p{
+            margin: 0;
+            padding: 0;
+            font-family: 'Anonymous Pro', monospace;
+            font-size: 20px;
+        }
+    }
+    &.show {
+        height: 200px;        
+    }
+    @media(prefers-reduced-motion){
+        &.show{
+            .title-warp{
+                transition: none;
+            }
+        }
+    }
+}
+
+/* ================SKILLSECTION==================== */
+
+.skills-section{
+    height: 968px;
+    background-color: $primary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    .skill-warp{
+        width: 720px;
+        margin: 0 370px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        .title-skills{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 370px;
+            height: 72px;
+            background-color: $black;
+            color: $primary;
+            font-size: 32px;
+            font-family: 'Anonymous Pro', monospace;
+            font-weight: 700;
+            filter: blur(5px);
+            transform: translateX(-500px);
+            opacity: 0;
+            transition: all 1s ease-out;
+            span{
+                white-space: nowrap;
+            }
+            &.open{
+                opacity: 1;
+                transform: translateX(0);
+                filter: blur(0px);
+            }
+            @media(prefers-reduced-motion){
+                &.open{
+                    transition: none;
+                }
+            }
+        }
+        p{
+            font-family: 'Aldrich', sans-serif;
+            font-size: 16px;
+        }
+        .skills-icons{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            img{
+                cursor: pointer;
+                transition: all .3s ease-out;
+               &:hover{
+                transform: scale(1.05);
+               } 
+            }
+        }
+    }
+}
