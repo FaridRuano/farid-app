@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <main>
       <Script src="/utils/scrollAnim.js"/>
-      <section className="main-section">
+      <section className="main-section" id="whoiam">
         <div className="main-warp">
           <h2>
             Hi, my name is...
@@ -66,7 +66,7 @@ export default function Home() {
           <span className="txt-holder">I love gifs!</span>
         </div>
       </section>
-      <section className="title">
+      <div className="title">
         <div className="title-warp">
           <h2>
             Skills
@@ -75,8 +75,8 @@ export default function Home() {
             Programing tools and Softwares
           </p>
         </div>
-      </section>
-      <section className="skills-section">
+      </div>
+      <section className="skills-section" id="skills">
         <div className="skill-warp">
           <div className="title-skills">
             <span>
@@ -117,7 +117,34 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      <div className="title">
+        <div className="title-warp">
+          <h2>
+            Experience
+          </h2>
+          <p>
+            In software and content creation.
+          </p>
+        </div>
+      </div>
+      <section className="experience-section" id="experience">
+        <div className="expe-warp">
+          <p>Along the 4 last years.</p>
+        </div>
+      </section>
+      <div className="title">
+        <div className="title-warp">
+          <h2>
+            Contact me
+          </h2>
+          <p>
+            For work purpouses.
+          </p>
+        </div>
+      </div>
+      <section className="contact-section" id="contact">
+        
+      </section>
     </main>
   )
 }
