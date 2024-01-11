@@ -19,6 +19,7 @@ import GFit from '@public/assets/icons/logo-gfit.png'
 import Sf from '@public/assets/icons/logo-sf.png'
 import { CldImage, CldVideoPlayer } from 'next-cloudinary';
 import Script from 'next/script'
+import Project1 from '@public/components/Project1'
 
 
 export default function Home() {
@@ -128,6 +129,7 @@ export default function Home() {
         </div>
       </div>
       <section className='experience-section' id='experience'>
+        <Project1/>
         <div className='expe-warp'>
           <div className='title-bg'>
             <span>

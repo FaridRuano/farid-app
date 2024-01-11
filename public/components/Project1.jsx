@@ -1,7 +1,9 @@
 
 const Project1 = () => {
   return (
-    <div>Project1</div>
+    <div className="p1-holder">
+        Project
+    </div>
   )
 }
 
