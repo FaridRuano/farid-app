@@ -16,7 +16,7 @@ const skillObv = new IntersectionObserver((entries) => {
 
 const titleElements = document.querySelectorAll('.title')
 
-const skillsElements = document.querySelectorAll('.title-skills')
+const skillsElements = document.querySelectorAll('.title-bg')
 
 titleElements.forEach((el) => titleObv.observe(el))
 

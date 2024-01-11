@@ -35,4 +35,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# movies
+public/assets/videos/3D-ANIM.mp4
+public/assets/videos/BG-EXPERIENCE.mp4
+public/assets/videos/BG-VIDEOS.mp4
+public/assets/videos/BRAND-ADVERTISING.mp4
+public/assets/videos/INSCRIPCION.ANGELES.mp4
+public/assets/videos/SANFRA.APP.mp4
+public/assets/videos/VFX-PORTAL.mp4

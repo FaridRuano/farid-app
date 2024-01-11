@@ -281,6 +281,7 @@ main{
     overflow: hidden;
     transition-delay: 0.2s;
     .title-warp{
+        position: relative;
         width: fit-content;
         height: fit-content;
         display: flex;
@@ -293,16 +294,36 @@ main{
             padding: 0;
             font-family: 'Aldrich', sans-serif;
             font-size: 32px;
+            z-index: 1;
+            &::selection{
+                background-color: $primary;
+            }
         }
         p{
             margin: 0;
             padding: 0;
             font-family: 'Anonymous Pro', monospace;
             font-size: 20px;
+            z-index: 1;
+            &::selection{
+                background-color: $primary;
+            }
         }
+        .bg{
+            position: absolute;
+            opacity: 1;
+            transition: 2s ease-in;
+        }   
+             
     }
     &.show {
-        height: 200px;        
+        height: 200px;
+        .title-warp{
+            .bg{
+                opacity: 0.3;
+            }
+        }
+                
     }
     @media(prefers-reduced-motion){
         &.show{
@@ -323,44 +344,20 @@ main{
     align-items: center;
     justify-content: center;
     gap: 5rem;
+    
     .skill-warp{
         width: 720px;
         margin: 0 370px;
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        .title-skills{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 370px;
-            height: 72px;
-            background-color: $black;
-            color: $primary;
-            font-size: 32px;
-            font-family: 'Anonymous Pro', monospace;
-            font-weight: 700;
-            filter: blur(5px);
-            transform: translateX(-500px);
-            opacity: 0;
-            transition: all 1s ease-out;
-            span{
-                white-space: nowrap;
-            }
-            &.open{
-                opacity: 1;
-                transform: translateX(0);
-                filter: blur(0px);
-            }
-            @media(prefers-reduced-motion){
-                &.open{
-                    transition: none;
-                }
-            }
-        }
+        gap: 1rem;      
+          
         p{
             font-family: 'Aldrich', sans-serif;
             font-size: 16px;
+            &::selection{
+                background-color: $white;
+            }
         }
         .skills-icons{
             width: 100%;
@@ -373,6 +370,9 @@ main{
                &:hover{
                 transform: scale(1.05);
                } 
+               &::selection{
+                background-color: $white;
+            }
             }
         }
     }
@@ -382,17 +382,249 @@ main{
 /* ===================EXPERIENCESECTION============================ */
 
 .experience-section{
-    height: 1000px;
+    height: 1500px;
     background-color: $primary;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 5rem;
     .expe-warp{
-        font-family: 'Aldrich', sans-serif;
         margin: 0 370px;
         width: 720px;
-        
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        p{
+            font-family: 'Aldrich', sans-serif;
+            font-size: 16px;
+            &::selection{
+                background-color: $white;
+            }
+        }
+        .projects-warp{
+            width: 100%;
+            height: 370px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .types-warp{
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                list-style-type: none;
+                gap: 1rem;
+                .type-item {
+                    height: 28px;
+                    border-bottom: solid 2px $black;
+                    cursor: pointer;
+                    overflow: hidden;
+                    .arrow{
+                        margin: 0 5px;
+                        transition: all .2s ease-in-out;
+                        transform: translateX(-30px);
+                        &::selection{
+                            background-color: $white;
+                        }
+                    }
+                    span {
+                        font-family: 'Aldrich', sans-serif;
+                        font-size: 24px;
+                        display: inline-block;
+                        transition: all .2s ease-in-out;
+                        transform: translateX(-20px);
+                        &::selection{
+                            background-color: $white;
+                        }
+                    }
+                    &:hover {
+                        .arrow{
+                            transform: translateX(0px);
+                        }
+                        span{
+                            transform: translateX(10px);
+                        }
+                    }
+                }
+                
+            }
+            .project-holder{
+                width: 50%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .videos{
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 25px;
+                    .project-video{
+                        position: absolute;
+                        border-radius: 25px;
+                        width: auto;
+                        height: 370px;
+                        opacity: 0;
+                        filter: blur(15px);
+                        z-index: -999;
+                        transition: all .3s ease-out;
+                        transform: translateX(-50px);
+                        &::selection{
+                            background-color: $white;
+                        }
+                        &.active{
+                            transform: translateX(0px);
+                            z-index: 1;
+                            opacity: 1;
+                            filter: blur(0);
+                        }
+                        &.bg{
+                            transform: translateX(0px);
+                            opacity: 1;
+                            z-index: 0;
+                            filter: blur(0);
+                        }
+                        &.full-screen{
+                            border-radius: 0;
+                            transform: translateX(0px);
+                            transition: all .3s ease-out;
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: rgba($color: $black, $alpha: 0.5);
+                            z-index: 999;
+                            pointer-events: all;
+                            cursor: pointer;
+                            opacity: 1;
+                            filter: blur(0);
+                        }
+                    }
+                }
+            }
+        }
+        .softwares-warp{
+            width: 100%;
+            height: 270px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .types-warp{
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                list-style-type: none;
+                gap: 1rem;
+                .type-item {
+                    height: 28px;
+                    border-bottom: solid 2px $black;
+                    cursor: pointer;
+                    overflow: hidden;
+                    .arrow{
+                        margin: 0 5px;
+                        transition: all .2s ease-in-out;
+                        transform: translateX(-30px);
+                        &::selection{
+                            background-color: $white;
+                        }
+                    }
+                    span {
+                        font-family: 'Aldrich', sans-serif;
+                        font-size: 24px;
+                        display: inline-block;
+                        transition: all .2s ease-in-out;
+                        transform: translateX(-20px);
+                        &::selection{
+                            background-color: $white;
+                        }
+                    }
+                    &:hover {
+                        .arrow{
+                            transform: translateX(0px);
+                        }
+                        span{
+                            transform: translateX(10px);
+                        }
+                    }
+                }
+                
+            }
+            .software-holder{
+                width: 50%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .software{
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 25px;
+                    .project-software{
+                        position: absolute;
+                        border-radius: 25px;
+                        width: auto;
+                        height: 210px;
+                        width: 210px;
+                        opacity: 0;
+                        filter: blur(15px);
+                        z-index: -999;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: $black;
+                        img{
+                            &::selection{
+                                background-color: $white;
+                            }
+                        }
+                        &::selection{
+                            background-color: $white;
+                        }
+                        &.active{
+                            z-index: 1;
+                            opacity: 1;
+                            filter: blur(0);
+                            
+                        }
+                        &.bg{
+                            transition: all .3s ease-out;
+                            opacity: 1;
+                            z-index: 0;
+                            filter: blur(0);
+                            overflow: hidden;
+                        }
+                        &.border{
+                            transform: scale(1.2);
+                            background-color: transparent;
+                            border: solid 1px $black;
+                            z-index: 0;
+                            filter: blur(0);
+                            opacity: 1;
+                            animation: scaleLoop 5s ease-out infinite;
+                            @keyframes scaleLoop {
+                                0%, 100%{
+                                    opacity: 1;
+                                    transform: scale(1.1);
+                                    filter: blur(0);
+                                }
+                                50%{
+                                    opacity: 0;
+                                    transform: scale(1.25);
+                                    filter: blur(25px);
+                                }
+                            }
+                        }                    
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -402,4 +634,41 @@ main{
 .contact-section{
     height: 1000px;
     background-color: $primary;
+}
+
+
+
+/* ===================COMMONCLASSES==================== */
+.title-bg{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 370px;
+    height: 72px;
+    background-color: $black;
+    color: $primary;
+    font-size: 32px;
+    font-family: 'Anonymous Pro', monospace;
+    font-weight: 700;
+    filter: blur(5px);
+    transform: translateX(-500px);
+    opacity: 0;
+    transition: all 1s ease-out;
+    span{
+        white-space: nowrap;
+        &::selection{
+            background-color: $white;
+        }
+    }
+    &.open{
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0px);
+    }
+    @media(prefers-reduced-motion){
+        &.open{
+            transition: none;
+        }
+    }
 }
