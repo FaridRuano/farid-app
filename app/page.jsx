@@ -17,12 +17,9 @@ import SaIcon from '@public/assets/icons/sa-icon.png'
 import ArrowRight from '@public/assets/icons/arrowRight.png'
 import GFit from '@public/assets/icons/logo-gfit.png'
 import Sf from '@public/assets/icons/logo-sf.png'
-import Gif1 from '@public/assets/videos/giphy.gif'
-import Gif2 from '@public/assets/videos/giphy1.gif'
 import Gif3 from '@public/assets/videos/giphy2.gif'
-
+import { CldImage, CldVideoPlayer } from 'next-cloudinary';
 import Script from 'next/script'
-import { useState } from 'react'
 
 
 export default function Home() {
@@ -55,15 +52,13 @@ export default function Home() {
         <div className='main-profile'>
 
           <div className='video-holder'>
-            <video className='profile-video' loop muted autoPlay>
-              <source src={require('../public/assets/videos/farid-profile.mp4')}/>
-            </video>
+            <CldVideoPlayer width='340' height='340' src='profile-video' className='profile-video' controlBar={false} bigPlayButton={false} muted={true} autoplay={true} loop={true}/>
           </div>
           <div className='gif-holder-1'>
-            <Image src={Gif1} width='120' height='auto'/>
+            <CldImage width='120' height='130' src='yez8ke9200ailvie3eae' alt='Gif 1'/>
           </div>
           <div className='gif-holder-2'>
-            <Image src={Gif2} width='220' height='auto'/>
+            <CldImage width={220} height={220} src="clmiontdz2u0srpcrzcb" alt='Gif 2'/>
           </div>
           <div className='border-profile'/>
           <span className='txt-holder'>I love gifs!</span>
@@ -90,13 +85,13 @@ export default function Home() {
             For coding web apps.
           </p>
           <div className='skills-icons'>
-            <Image src={JsIcon} width='72' height='72'/>
-            <Image src={HtIcon} width='72' height='72'/>
-            <Image src={CsIcon} width='72' height='72'/>
-            <Image src={SaIcon} width='72' height='72'/>
-            <Image src={PhpIcon} width='72' height='72'/>
-            <Image src={RtIcon} width='72' height='72'/>
-            <Image src={NxIcon} width='72' height='72'/>
+            <Image src={JsIcon} width='72' height='72' alt='Javascript'/>
+            <Image src={HtIcon} width='72' height='72' alt='Html'/>
+            <Image src={CsIcon} width='72' height='72' alt='Css'/>
+            <Image src={SaIcon} width='72' height='72' alt='Sass'/>
+            <Image src={PhpIcon} width='72' height='72' alt='Php'/>
+            <Image src={RtIcon} width='72' height='72' alt='React'/>
+            <Image src={NxIcon} width='72' height='72' alt='NextJs'/>
 
           </div>
         </div>
@@ -110,12 +105,12 @@ export default function Home() {
             For content creation and edition.
           </p>
           <div className='skills-icons'>
-            <Image src={BlIcon} width='auto' height='72'/>
-            <Image src={AiIcon} width='72' height='72'/>
-            <Image src={PsIcon} width='72' height='72'/>
-            <Image src={LgIcon} width='72' height='72'/>
-            <Image src={PrIcon} width='72' height='72'/>
-            <Image src={AeIcon} width='72' height='72'/>
+            <Image src={BlIcon} width='auto' height='72' alt='Blender 3D'/>
+            <Image src={AiIcon} width='72' height='72' alt='Illustrador'/>
+            <Image src={PsIcon} width='72' height='72' alt='Photoshop'/>
+            <Image src={LgIcon} width='72' height='72' alt='LightRoom'/>
+            <Image src={PrIcon} width='72' height='72' alt='Premiere Pro'/>
+            <Image src={AeIcon} width='72' height='72' alt='After Effects'/>
 
           </div>
         </div>
@@ -129,9 +124,7 @@ export default function Home() {
             In software and content creation.
           </p>
           <div className='bg'>
-            <video id='event' loop muted autoPlay>
-              <source src={require('../public/assets/videos/BG-EXPERIENCE.mp4')}/>
-            </video>        
+            <CldVideoPlayer width='1920' height='1080' src='BG-EXPERIENCE' className='bg-expe' controlBar={false} bigPlayButton={false} muted={true} autoplay={true} loop={true}/>                 
           </div>
         </div>
       </div>
@@ -163,13 +156,13 @@ export default function Home() {
             <div className='software-holder'>
               <div className='software'>
                 <div id='sanfra' className='project-software'>
-                  <Image src={Sf} width={150} height={'auto'}/>
+                  <Image src={Sf} width={150} height={'auto'} alt='San Francisco Ltda.'/>
                 </div>
                 <div id='gym' className='project-software'>
-                  <Image src={GFit} width={150} height={'auto'}/>
+                  <Image src={GFit} width={150} height={'auto'} alt='Guaytambos fit'/>
                 </div>                                
                 <div className='project-software bg'>
-                  <Image src={Gif3} width={210} height={'auto'}/>
+                  <CldImage width={210} height={210} src="gif3" alt='Default'/>
                 </div>    
                 <div className='project-software border'/>
               </div>
@@ -220,10 +213,25 @@ export default function Home() {
             </div>
             <div className='project-holder'>
               <div className='videos'>
-                <video id='resume' className='project-video' loop muted autoPlay>
+                <div id='resume' className='cl-video'>
+                  <CldVideoPlayer className='cl-player' src='INSCRIPCION-ANGELES' controlBar={false} bigPlayButton={false} muted={true} autoplay={true} loop={true}/>
+                </div>
+                <div id='motion' className='cl-video'>
+                  <CldVideoPlayer className='cl-player' src='MOTION-GRAPHICS' controlBar={false} bigPlayButton={false} muted={true} autoplay={true} loop={true}/>
+                </div>
+                <div id='vfx' className='cl-video'>
+                  <CldVideoPlayer className='cl-player' src='VFX-PORTAL' controlBar={false} bigPlayButton={false} muted={true} autoplay={true} loop={true}/>
+                </div>
+                <div id='brand' className='cl-video'>
+                  <CldVideoPlayer className='cl-player' src='BRAND-ADVERTISING' controlBar={false} bigPlayButton={false} muted={true} autoplay={true} loop={true}/>
+                </div>
+                <div id='3d' className='cl-video'>
+                  <CldVideoPlayer className='cl-player' src='3D-ANIM' controlBar={false} bigPlayButton={false} muted={true} autoplay={true} loop={true}/>
+                </div>
+                {/* <video id='resume' className='project-video' loop muted autoPlay>
                   <source src={require('../public/assets/videos/INSCRIPCION.ANGELES.mp4')}/>
-                </video>
-                <video id='motion' className='project-video' loop muted autoPlay>
+                </video> */}
+                {/* <video id='motion' className='project-video' loop muted autoPlay>
                   <source src={require('../public/assets/videos/SANFRA.APP.mp4')}/>
                 </video>
                 <video id='vfx' className='project-video' loop muted autoPlay>
@@ -234,10 +242,9 @@ export default function Home() {
                 </video>
                 <video id='3d' className='project-video' loop muted autoPlay>
                   <source src={require('../public/assets/videos/3D-ANIM.mp4')}/>
-                </video>
-                <video id='3d' className='project-video bg' loop muted autoPlay>
-                  <source src={require('../public/assets/videos/BG-VIDEOS.mp4')}/>
-                </video>
+                </video> */}
+                <CldVideoPlayer width='208' height='370' src='BG-VIDEO' className='cl-video bg' controlBar={false} bigPlayButton={false} muted={true} autoplay={true} loop={true}/>                 
+                                
               </div>
             </div>
           </div>

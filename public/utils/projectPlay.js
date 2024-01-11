@@ -18,12 +18,22 @@ typeItems.forEach((typeItem) => {
             // Toggle the 'full-screen' class on the video element
             projectVideo.classList.add('full-screen');
             projectVideo.muted = !projectVideo.muted
+            const videoElement = projectVideo.querySelector('video');
+            // Check if the video element exists before toggling the mute
+            if (videoElement) {
+                videoElement.muted = !videoElement.muted;
+            }
 
         });
 
         projectVideo.addEventListener('click', () => {
             projectVideo.classList.remove('full-screen');
             projectVideo.muted = !projectVideo.muted
+            const videoElement = projectVideo.querySelector('video');
+            // Check if the video element exists before toggling the mute
+            if (videoElement) {
+                videoElement.muted = !videoElement.muted;
+            }
         })
 
         // Add event listener to the current type-item element for hover effects

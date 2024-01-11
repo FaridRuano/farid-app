@@ -151,9 +151,20 @@ main{
             border-radius: 25px;            
             overflow: hidden;
             z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-self: center;
             .profile-video{
                 width: 340px;
                 height: 340px;
+                padding-top: 0;
+                video{
+                    width: 340px;
+                    height: 340px;
+                    overflow-clip-margin: initial;
+                    overflow: hidden;
+                    pointer-events: none;
+                }
             }
         }
         .border-profile{
@@ -313,6 +324,20 @@ main{
             position: absolute;
             opacity: 1;
             transition: 2s ease-in;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 0;
+            .bg-expe{
+                width: 100%;
+                height: auto;
+                padding-top: 0;
+                video{
+                    overflow-clip-margin: initial;
+                    overflow: hidden;
+                    pointer-events: none;
+                }
+            }
         }   
              
     }
@@ -460,49 +485,86 @@ main{
                     align-items: center;
                     justify-content: center;
                     border-radius: 25px;
-                    .project-video{
+                    height: 370px;
+                    width: 208px;
+                    transition: .3s ease-out;                    
+
+                    .cl-video{
+                        top: 0;
+                        left: 0;
                         position: absolute;
-                        border-radius: 25px;
-                        width: auto;
+                        width: 208px;
                         height: 370px;
-                        opacity: 0;
-                        filter: blur(15px);
-                        z-index: -999;
-                        transition: all .3s ease-out;
+                        padding-top: 0;
+                        border-radius: 25px;
                         transform: translateX(-50px);
-                        &::selection{
-                            background-color: $white;
-                        }
+                        transition: all .3s ease-out;
+                        filter: blur(25px);
+                        opacity: 0;
+                        
                         &.active{
-                            transform: translateX(0px);
-                            z-index: 1;
-                            opacity: 1;
                             filter: blur(0);
-                        }
-                        &.bg{
-                            transform: translateX(0px);
                             opacity: 1;
-                            z-index: 0;
-                            filter: blur(0);
+                            transform: translateX(0);
+                            z-index: 1000;
                         }
                         &.full-screen{
-                            border-radius: 0;
-                            transform: translateX(0px);
-                            transition: all .3s ease-out;
+                            cursor: pointer;
                             position: fixed;
                             top: 0;
                             left: 0;
-                            width: 100%;
-                            height: 100%;
+                            width: 100vw;
+                            height: 100vh;
+                            background-color: rgba($color: $black, $alpha: 0.5);
+                            filter: blur(0);
+                            opacity: 1;
+                            transform: translateX(0);
+                            z-index: 1000;
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            background-color: rgba($color: $black, $alpha: 0.5);
-                            z-index: 999;
-                            pointer-events: all;
-                            cursor: pointer;
+                            .cl-player{
+                                width: 100vw;
+                                height: 100vh;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                video{
+                                    height: 100%;
+                                    width: auto;
+                                }
+                            }
+                        }
+                        .cl-player{
+                            width: 208px;
+                            height: 370px;                                           
+                            padding-top: 0;        
+                            border-radius: 25px;  
+                            overflow: hidden;   
+                            video{
+                                padding-top: 0;                            
+                                width: 208px;
+                                height: 370px;
+                                overflow-clip-margin: initial;
+                                overflow: hidden;
+                                pointer-events: none;
+                            }
+                        }
+                        &.bg{
+                            width: 208px;
+                            height: 370px;  
                             opacity: 1;
+                            transform: translateX(0);
                             filter: blur(0);
+                            overflow: hidden;
+                            video{
+                                padding-top: 0;                            
+                                width: 208px;
+                                height: 370px;
+                                overflow-clip-margin: initial;
+                                overflow: hidden;
+                                pointer-events: none;
+                            }
                         }
                     }
                 }
@@ -672,3 +734,22 @@ main{
         }
     }
 }
+
+.vjs-poster,
+.vjs-title-bar,
+.vjs-text-track-display,
+.vjs-title-bar,
+.vjs-recomentations-overlay,
+.vjs-upcoming-video,
+.vjs-loading-spinner,
+.vjs-error-display{
+    display: none;
+}
+
+.player-profile-video-dimensions,
+.player-BG-EXPERIENCE-dimensions,
+.vjs-fluid:not,
+.resume-dimensions{
+    padding-top: 0;
+}
+
