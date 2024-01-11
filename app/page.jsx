@@ -17,7 +17,6 @@ import SaIcon from '@public/assets/icons/sa-icon.png'
 import ArrowRight from '@public/assets/icons/arrowRight.png'
 import GFit from '@public/assets/icons/logo-gfit.png'
 import Sf from '@public/assets/icons/logo-sf.png'
-import Gif3 from '@public/assets/videos/giphy2.gif'
 import { CldImage, CldVideoPlayer } from 'next-cloudinary';
 import Script from 'next/script'
 
