@@ -20,10 +20,27 @@ import Sf from '@public/assets/icons/logo-sf.png'
 import { CldImage, CldVideoPlayer } from 'next-cloudinary';
 import Script from 'next/script'
 import Project1 from '@public/components/Project1'
+import Project2 from '@public/components/Project2'
+import Git from '@public/assets/icons/git.jpg'
+import Link from '@public/assets/icons/link-logo.jpg'
+
+
+
+import { useState } from 'react'
 
 
 export default function Home() {
+  const [openP1, setOpen1] = useState(true)
 
+  const handleP1 = () =>{
+    setOpen1(!openP1)
+  }
+
+  const [openP2, setOpen2] = useState(true)
+
+  const handleP2 = () =>{
+    setOpen2(!openP2)
+  }
   return (
     <main>
       <Script src='/utils/scrollAnim.js'/>
@@ -129,7 +146,8 @@ export default function Home() {
         </div>
       </div>
       <section className='experience-section' id='experience'>
-        <Project1/>
+        <Project1 disable={openP1} setDisable={handleP1}/>
+        <Project2 disable={openP2} setDisable={handleP2}/>
         <div className='expe-warp'>
           <div className='title-bg'>
             <span>
@@ -141,13 +159,13 @@ export default function Home() {
           </p>
           <div className='softwares-warp'>
             <div className='types-warp'>
-              <div className='type-item' data-video-id='sanfra'>
+              <div className='type-item' data-video-id='sanfra' onClick={()=>handleP1()}>
                 <Image className='arrow' src={ArrowRight} width={10} height={'auto'} alt='Arrow Right Icon'/>
                 <span>
                   San Francisco Ltda.
                 </span>
               </div>
-              <div className='type-item' data-video-id='gym'>
+              <div className='type-item' data-video-id='gym' onClick={()=>handleP2()}>
                 <Image className='arrow' src={ArrowRight} width={10} height={'auto'} alt='Arrow Right Icon'/>      
                 <span>
                   Guaytambos Fit
@@ -229,21 +247,6 @@ export default function Home() {
                 <div id='3d' className='cl-video'>
                   <CldVideoPlayer className='cl-player' src='3D-ANIM' controlBar={false} bigPlayButton={false} muted={true} autoplay={true} loop={true}/>
                 </div>
-                {/* <video id='resume' className='project-video' loop muted autoPlay>
-                  <source src={require('../public/assets/videos/INSCRIPCION.ANGELES.mp4')}/>
-                </video> */}
-                {/* <video id='motion' className='project-video' loop muted autoPlay>
-                  <source src={require('../public/assets/videos/SANFRA.APP.mp4')}/>
-                </video>
-                <video id='vfx' className='project-video' loop muted autoPlay>
-                  <source src={require('../public/assets/videos/VFX-PORTAL.mp4')}/>
-                </video>
-                <video id='brand' className='project-video' loop muted autoPlay>
-                  <source src={require('../public/assets/videos/brand-advertising.mp4')}/>
-                </video>
-                <video id='3d' className='project-video' loop muted autoPlay>
-                  <source src={require('../public/assets/videos/3D-ANIM.mp4')}/>
-                </video> */}
                 <CldVideoPlayer width='208' height='370' src='BG-VIDEO' className='cl-video bg' controlBar={false} bigPlayButton={false} muted={true} autoplay={true} loop={true}/>                 
                                 
               </div>
@@ -252,8 +255,6 @@ export default function Home() {
         </div>
       </section>
       <div className='title'>
-                
-        
         <div className='title-warp'>
           <h2>
             Contact me
@@ -264,7 +265,44 @@ export default function Home() {
         </div>
       </div>
       <section className='contact-section' id='contact'>
-        
+        <div className='info'>
+          <div className='personal'>
+            <h1 className='tit'>Contact Info</h1>
+            <div>
+              <h1>
+                Email:
+              </h1>
+              <span>
+                fruanocm2777@gmail.com
+              </span>
+            </div>
+            <div>
+              <h1>
+                Phone:
+              </h1>
+              <span>
+                (+593) 99-644-7884
+              </span>
+            </div>
+            <div className='btn-wpp'>
+              <a href='https://w.app/FaridRuano' target='_blank'>
+                Send Me Message
+              </a>
+            </div>
+          </div>
+          <div className='social'>
+            <div className='git-btn'>
+              <a href='https://github.com/FaridRuano' target="_blank">
+                <Image src={Git} width={100} height={'auto'} alt='Git'/>
+              </a>
+            </div>
+            <div className='git-btn'>
+              <a href='https://www.linkedin.com/in/farid-ruano-76878b287/' target='_blank'>
+                <Image src={Link} width={100} height={'auto'} alt='Link'/>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   )

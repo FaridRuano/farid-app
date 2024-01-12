@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import Sf from '@public/assets/icons/logo-sf.png'
-import Sf1 from '@public/assets/images/sf-1.jpg'
-import Sf2 from '@public/assets/images/sf-2.jpg'
+import Sf from '@public/assets/icons/logo-gfit.png'
+import Sf1 from '@public/assets/images/gy-1.jpg'
+import Sf2 from '@public/assets/images/gy-2.jpg'
 import Git from '@public/assets/icons/git.jpg'
 
 
@@ -25,7 +25,7 @@ const Project1 = ({disable, setDisable}) => {
                             Category:
                         </h1>
                         <span>
-                            Web UX/UI Design
+                            Admin Web App
                         </span>
                     </div>
                     <div className="ids-item">
@@ -33,7 +33,7 @@ const Project1 = ({disable, setDisable}) => {
                             Client:
                         </h1>
                         <span>
-                            San Francisco Ltda
+                            Guaytambos Fit
                         </span>
                     </div>
                     <div className="ids-item">
@@ -41,17 +41,17 @@ const Project1 = ({disable, setDisable}) => {
                             Year:
                         </h1>
                         <span>
-                            2023
+                            2022
                         </span>
                     </div>
                 </div>
                 <div className='info-desc'>
                     <p>
-                    San Francisco Ltda is a finance company whose purpose is to provide 
-                    the best possible service to its clients. The construction of 
-                    its website has been guided by the graphic line that has been used 
-                    on social networks, with a dynamic approach to all the information 
-                    that it must provide to its clients throughout Ecuador.
+                    Guaytambos Fit is a training center. This web app has been developed
+                    with the purpouse of giving the owner the complete control over
+                    his clients. It also integrate a plugin which allows clients to mark
+                    asistance with biometric reader. Its a usefull tool that can be used
+                    by different bussiness of the same category.
                     </p>
                 </div>
             </div>
@@ -64,13 +64,13 @@ const Project1 = ({disable, setDisable}) => {
                 </div>
             </div>
             <div className='p1-buttons'>
-                <div className='live-btn'>
-                    <a href='https://sanfra.vercel.app' target="_blank">
+                <div className='live-btn disable'>
+                    <a href='' target="_blank">
                         View Live Demo
                     </a>
                 </div>
                 <div className='git-btn'>
-                    <a href='https://github.com/FaridRuano/sanfra' target="_blank">
+                    <a href='https://github.com/FaridRuano/GymApp' target="_blank">
                         <Image src={Git} width={50} height={'auto'} alt='Git'/>
                     </a>
                 </div>
