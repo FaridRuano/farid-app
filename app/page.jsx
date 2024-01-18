@@ -155,7 +155,8 @@ export default function Home() {
             </span>
           </div>
           <p>
-            Some projects for different type of clients.
+            Web Pages and Web Apps that show my design habilities to create beautifull and interactive
+            interfaces, that create a unique experience for the user.
           </p>
           <div className='softwares-warp'>
             <div className='types-warp'>
@@ -195,7 +196,8 @@ export default function Home() {
             </span>
           </div>
           <p>
-            Some projects for different type of clients.
+            Different style of videos for different communication purpouses, some ones include
+            high VFX skills and creativity.
           </p>
           <div className='projects-warp'>
             <div className='types-warp'>
