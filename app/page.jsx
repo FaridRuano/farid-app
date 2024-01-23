@@ -59,7 +59,7 @@ export default function Home() {
             your social media.
           </p>
           <p>
-            I’m a 22 years old Software Engineering student.
+            I’m a 22 years old Software Engineer.
             Currently working with different enterprises as Creative
             Director and Web Developer. My work focus on helping small and big
             business to reach their goals in social media. Furthermore I build
