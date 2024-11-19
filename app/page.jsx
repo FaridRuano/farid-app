@@ -41,7 +41,7 @@ export default function Home() {
   const handleP2 = () =>{
     setOpen2(!openP2)
   }
-  return (
+  /* return (
     <main>
       <Script src='/utils/scrollAnim.js'/>
       <Script src='/utils/projectPlay.js'/>
@@ -306,6 +306,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+    </main>
+  ) */
+  return (
+    <main>
+      Actualmente en Mantenimiento
     </main>
   )
 }

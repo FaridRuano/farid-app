@@ -11,8 +11,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Navbar/>
-        <div className="app">
+        {/* <Navbar/> */}
+        <div className="app-mantenience">
           {children}
         </div>
       </body>
